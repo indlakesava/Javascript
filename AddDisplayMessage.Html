@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Random color generator!</title>
+        <style>
+            body{
+                background-color: #83D8B7;
+            }
+
+            #btn{
+                color: #134A1E;;
+                border-radius: 6px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                font-size:150%;
+                margin:0 auto;
+                display:block;
+            }
+
+            #div1{
+                top: 5%;
+                left: 30%;
+                transform: translate3d(0, 0, 0);
+                position: absolute;
+            }
+
+            #msg,#LastMessage,#PreviousMessages{
+                color: #134A1E;
+            } 
+        </style>
+    </head>
+
+    <body>
+    <div id="div1">
+        <H1>Type some text you would like to Add</H1>
+        <input type="text" id="msg" size="70"><br><br>
+        <button type="button" id="btn" onClick="SaveText()">Add Text!</button>
+        <h3>Latest Messge:</h3>
+        <p id="LastMessage"></p>
+        <h3>Previous Messages:</h3>
+        <p id="PreviousMessages"></p>
+    </div>
+    <script>
+        var Datastore = ""
+        function SaveText(){
+            document.getElementById("LastMessage").innerHTML = document.getElementById("msg").value;
+            document.getElementById("PreviousMessages").innerHTML = Datastore;
+            Datastore += document.getElementById("msg").value + "<br>";
+        }
+    </script>
+    <body>
+</html>
