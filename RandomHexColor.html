@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Random color generator!</title>
+        <style>
+            #btn{
+                color: white;
+                border-radius: 6px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                font-size:150%;
+                margin:0 auto;
+                display:block;
+            }
+            
+            #btntxt{
+                top:50%;
+                left: 50%;
+                transform: translate3d(-50%,-50%, 0);
+                position: absolute;
+            }
+        </style>
+    </head>
+
+    <body>
+    <div id="btntxt">
+        <button type="button" id="btn" onClick="changeColor()">Change Color</button>
+        <p id="hexcolor" style="font-size:xx-large;font-family: 'Times New Roman', Times, serif;"></p>
+    </div>
+    <script>
+    var previouscolor = "";
+    function changeColor(){
+        var randcolor = "#";        
+        for(var i=0;i<6;i++)
+        {
+            randcolor += Math.floor((Math.random()*16)).toString(16);
+        }
+        document.body.style.backgroundColor = randcolor;
+        document.getElementById("hexcolor").innerHTML = "Hex Color : " + randcolor.toUpperCase();
+        document.getElementById("btn").style.backgroundColor = previouscolor;
+        previouscolor = randcolor;    
+    }
+    </script>
+    <body>
+</html>
