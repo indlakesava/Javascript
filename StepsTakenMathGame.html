@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Calculation Game!</title>
+        <style>
+            body{
+                background-color: #83D8B7;
+            }
+
+            .button{
+                color: #134A1E;
+                border-radius: 6px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                font-size:150%;
+            }
+
+            #num,#randnum,#TorF,#steps,#result{
+                color: #134A1E;
+                font-size: 150%;
+            } 
+
+            .blink_me {
+            animation: blinker 1s linear infinite;
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body onload="generate_random_num()">
+    <div id="div1" align="center">
+        <h1 id="head_text"><span id="num"></body></span>&nbsp; = <span id="randnum"></span>&nbsp; ? <span id="TorF"></span>&nbsp;</h1><br>
+        <button type="button" id="btn_dbl" class="button" onClick="double()">Double</button>
+        <button type="button" id="btn_half" class="button" onClick="half()">Half</button>
+        <button type="button" id="btn_sqr" class="button" onClick="sqr()">Square</button>
+        <button type="button" id="btn_sqrt" class="button" onClick="sqrt()">Root</button>
+        <button type="button" id="btn_inc" class="button" onClick="inc()">Increment</button>
+        <button type="button" id="btn_dec" class="button" onClick="dec()">Decrement</button>
+        <button type="button" id="btn_mul5" class="button" onClick="mul5()">X 5</button>
+        <button type="button" id="btn_div5" class="button" onClick="div5()">/ 5</button>
+        <button type="button" id="btn_add10" class="button" onClick="add10()">+ 10</button>
+        <button type="button" id="btn_sub10" class="button" onClick="sub10()">- 10</button><br><br>
+        <span id="steps">Steps Used:</span><span id="result">0</span>
+    </div>
+    <script>
+        var ran_num = Math.round(Math.random()*1000);
+        var input_num = Math.round(Math.random()*1000);
+        var steps = 0;
+
+        function generate_random_num(){
+            document.getElementById("num").innerHTML = input_num;            
+            document.getElementById("randnum").innerHTML = ran_num;
+            if(input_num == ran_num)
+            {
+                document.getElementById("TorF").innerHTML = "True";
+                document.getElementById("head_text").innerHTML = "Game Completed!";
+            }
+            else
+            {
+                document.getElementById("TorF").innerHTML = "False";
+            }
+            steps = 0;
+        }
+
+        function verify(){
+            if(document.getElementById("num").innerHTML == document.getElementById("randnum").innerHTML)
+            {
+                document.getElementById("TorF").innerHTML = "True";
+                document.getElementById("head_text").innerHTML = "Game Completed!";
+                document.getElementById("res").className = blink_me;
+            }
+            else
+            {
+                document.getElementById("TorF").innerHTML = "False";
+            }
+        }
+
+        function fun_steps(){
+            ++steps;
+            document.getElementById("result").innerHTML = steps;
+        }
+
+        function double(){
+            document.getElementById("num").innerHTML = document.getElementById("num").innerHTML * 2;
+            fun_steps();
+            verify();
+        }
+
+        function half(){
+            document.getElementById("num").innerHTML = Math.round(document.getElementById("num").innerHTML / 2);
+            fun_steps();
+            verify();
+        }
+
+        function sqr(){
+            document.getElementById("num").innerHTML = Math.pow(document.getElementById("num").innerHTML, 2);
+            fun_steps();
+            verify();
+        }
+
+        function sqrt(){
+            document.getElementById("num").innerHTML = Math.round(Math.sqrt(document.getElementById("num").innerHTML));
+            fun_steps();
+            verify();
+        }
+
+        function inc(){
+            document.getElementById("num").innerHTML = ++document.getElementById("num").innerHTML;
+            fun_steps();
+            verify();
+        }
+
+        function dec(){
+            document.getElementById("num").innerHTML = --document.getElementById("num").innerHTML;
+            fun_steps();
+            verify();
+        }
+
+        function mul5(){
+            document.getElementById("num").innerHTML = document.getElementById("num").innerHTML * 5;
+            fun_steps();
+            verify();
+        }
+
+        function div5(){
+            document.getElementById("num").innerHTML = Math.round(document.getElementById("num").innerHTML / 5);
+            fun_steps();
+            verify();
+        }
+
+        function add10(){
+            document.getElementById("num").innerHTML = parseInt(document.getElementById("num").innerHTML) + 10;
+            fun_steps();
+            verify();
+        }
+
+        function sub10(){
+            document.getElementById("num").innerHTML = parseInt(document.getElementById("num").innerHTML) - 10;
+            fun_steps();
+            verify();
+        }
+    </script>
+    <body>
+</html>
