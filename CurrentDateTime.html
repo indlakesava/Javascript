@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Current Date Time!</title>
+        <style>
+            body{
+                background-color: #83D8B7;
+            }
+            p{
+                font-size: large;
+            }
+            #btn{
+                color: #134A1E;
+                border-radius: 6px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                font-size:150%;
+                margin:0 auto;
+                display:block;
+            }            
+        </style>
+    </head>
+
+    <body>
+    <div id="div1" align="center">
+        <p>Click the button below to see the current time</p>
+        <button id="btn" onclick="getDate()">Click me!</button>
+        <p id="txt"></p>
+    </div>
+    <script>
+        function getDate(){
+            document.getElementById("txt").innerHTML = Date();
+            document.getElementById("btn").innerHTML = "Click Again!";
+        }
+    </script>
+    <noscript>
+        your browser doesn't support Javascript
+    </noscript>
+    <body>
+</html>
