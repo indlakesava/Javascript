@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Day & Time!</title>
+        <style>
+            body{
+                background-color: #83D8B7;
+            }
+            p{
+                font-size: 200%;
+            }
+            #btn{
+                color: #134A1E;
+                border-radius: 6px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                font-size:150%;
+                margin:0 auto;
+                display:block;
+            }
+            #div1{
+                top:50%;
+                left: 50%;
+                transform: translate3d(-50%,-50%, 0);
+                position: absolute;
+            }            
+        </style>
+    </head>
+
+    <body onload="getDate()">
+    <div id="div1" align="center">
+        <p id="day"></p>
+        <p id="time"></p>
+    </div>
+    <script>
+        function getDate(){
+            var d = new Date();
+            var daylist = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+            document.getElementById("day").innerHTML = daylist[d.getDay()].toUpperCase();
+            var hrs = d.getHours();
+            var mins = d.getMinutes();
+            var secs = d.getSeconds();
+            var am_pm = "AM"
+            if(hrs >= 12)
+            {
+                am_pm = "PM";
+            }
+            document.getElementById("time").innerHTML = hrs + ":" + mins + ":" + secs + " " + am_pm;
+        }
+    </script>
+    <noscript>
+        your browser doesn't support Javascript
+    </noscript>
+    <body>
+</html>
