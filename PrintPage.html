@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Print!</title>
+        <style>
+            body{
+                background-color: #83D8B7;
+            }
+            p {
+                font-size: 200%;
+            }
+            #btn, #btn_reset{
+                color: #134A1E;
+                border-radius: 6px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                font-size:150%;
+            }
+            
+            #butn{
+                margin: 0 auto;
+                display: block;
+            }
+
+            #div1{
+                top:50%;
+                left: 50%;
+                transform: translate3d(-50%,-50%, 0);
+                position: absolute;
+            }          
+        </style>
+    </head>
+
+    <body>
+    <div id="div1" align="center">
+        <p id="hint">Enter some text you would like to print:</p>
+        <textarea id="txt" rows="10" cols="75"></textarea><br><br>
+        <div id="butn">
+            <button id="btn_reset" onclick="reset()">Reset!</button>
+            <button id="btn" onclick="print_func()">Print!</button>
+        </div>
+    </div>
+    <script>
+        function print_func(){
+            window.print();
+        }
+
+        function reset(){
+            document.getElementById("txt").value = "";
+        }
+    </script>
+    <noscript>
+        your browser doesn't support Javascript
+    </noscript>
+    <body>
+</html>
